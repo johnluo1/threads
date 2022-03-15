@@ -10,6 +10,7 @@ class Worker(Thread):
     def __init__(self):
         logging.info("worker thread starting")
         Thread.__init__(self)
+        self.name = "Worker"
 
     def cleanup(self):
         try: 

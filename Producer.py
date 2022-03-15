@@ -9,6 +9,7 @@ class Producer(Thread):
     def __init__(self):
         logging.info("producer thread starting")
         Thread.__init__(self)
+        self.name = "Producer"
     def cleanup(self):
         try: 
             if resource_lock.locked():
