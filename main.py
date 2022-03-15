@@ -9,13 +9,13 @@ def run():
     # starting multiple workers/threads
     workers = []
     for i in range(settings.number_of_workers):
-        t = Worker()  
+        t = Worker(i)  
         t.start()
         workers.append(t)
 
     producers = []
     for i in range(settings.number_of_producers):
-        t = Producer()  
+        t = Producer(i)  
         t.start()
         producers.append(t)
 
@@ -43,7 +43,7 @@ def run():
             if not t.isAlive():
                 t.cleanup()
                 t.join()
-                t = Worker()
+                t = Worker(i)
                 t.start()
                 workers[i] = t
         # monitoring producers. Restart a dead producer if needed
@@ -51,7 +51,7 @@ def run():
             if not t.isAlive():
                 t.cleanup()
                 t.join()
-                t = Producer()
+                t = Producer(i)
                 t.start()
                 producers[i] = t
 

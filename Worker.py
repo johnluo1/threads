@@ -7,10 +7,10 @@ from settings import resource_lock, shared_resource, max_resource_size
 
 
 class Worker(Thread):
-    def __init__(self):
+    def __init__(self, thread_id=None):
         logging.info("worker thread starting")
         Thread.__init__(self)
-        self.name = "Worker"
+        self.name = "Worker" + (str(thread_id) if thread_id!=None else "")
 
     def cleanup(self):
         try: 
