@@ -1,5 +1,7 @@
-# threads
+# threads using simple lock
 
 Simple multiple thread producer/consumer in python 
-to run: python main.py
+- To run: python main.py
+
+
 

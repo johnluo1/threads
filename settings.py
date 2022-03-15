@@ -8,8 +8,9 @@ sleep_time            = 10
 
 # resource
 resource_lock         = threading.Lock()
+resource_condition    = threading.Condition()
 shared_resource       = []
-max_resource_size      = 10
+max_resource_size     = 10
 
 # logging
 logging.basicConfig(level=logging.DEBUG, 

@@ -13,7 +13,8 @@ class Worker(Thread):
 
     def cleanup(self):
         try: 
-            resource_lock.release()   # just in case 
+            if resource_lock.locked():
+                resource_lock.release()   # just in case 
         finally:
             pass
     def run(self):
